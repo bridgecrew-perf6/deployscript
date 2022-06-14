@@ -1,0 +1,35 @@
+*ssh: connect to host 10.238.108.174 port 7654: Connection timed out* 
+---------------------------------------------------------------------
+
+VM's novas, que são alocadas com ip na rede 10.238.108.*
+
+A ATI usa o arquivo /etc/iptable.regras pra escrever as regras locais.
+
+Inseri a linha no arquivo: /etc/iptable.regras
+#Balaio proatividade#
+$IPT -A INPUT -s 200.238.83.28 -p tcp --dport 7654 -j ACCEPT
+
+Aceita a comunicação vinda da vm do balaio na porta 7654
+
+Dar o restart: /etc/init.d/firewall restart
+
+OBS:
+Sempre copia o arquivo pra o /home/centralit
+
+Esse arquivo é protegido por bit imutável, ai tem que usar aquele comando lá antes de editar: unlock
+
+
+Foi realizado o procedimento de adição de regra de firewall, onde foi editado o arquivo ufw user.rules, 
+e adicionado a regra na porta 7654 que permite a conexão com o balaio, em seguida foi realizado o procedimento do ssh-copy-id para que não 
+fosse mais necessário realizar o pedido de senha ao logar no servidor.
+
+--------------------------------------------------------------------------------------------------------------------
+Foi analisado discos, memoria, CPU e logs, onde o servidor se encontra normal, não precisando de atuação no mesmo.
+<IP>10.238.105.22<IP>
+<KB>200.238.105.172/mediawiki/images/b/b4/BDCA_-_022_Linux_-_Analise_de_Desmpenho_em_Ambiente_.pdf<KB>
+
+
+Foi realizado o procedimento de adição de regra de firewall, onde foi editado o arquivo ufw user.rules, e adicionado a regra na porta 7654 que permite a conexão com o balaio, em seguida foi realizado o procedimento do ssh-copy-id para que não fosse mais necessário realizar o pedido de senha ao logar no servidor.
+
+<IP>10.238.112.203</IP>
+<KB>200.238.105.172/mediawiki/images/b/b4/BDCA_-_022_Linux_-_Analise_de_Desmpenho_em_Ambiente_.pdf</KB>
